@@ -1,3 +1,3 @@
 <x-layoutcomp title="Contact">
-    hi
+    This is contact Page
 </x-layoutcomp>

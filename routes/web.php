@@ -12,4 +12,5 @@ Route::get('/about', function ()  {
   return view('About');
 });
 
-Route::redirect("/contact", "/");
+// Route::redirect("/contact", "/");
+Route::view("/contact", "contact");
