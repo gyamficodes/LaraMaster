@@ -1,10 +1,13 @@
 <?php
 
+use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 
 use function Pest\Laravel\get;
 
 Route::get('/', function () {
+   $PostList = Post::all();
+   dump($PostList);
     return view('welcome');
 });
 
