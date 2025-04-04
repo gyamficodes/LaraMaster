@@ -12,7 +12,7 @@ use function Pest\Laravel\get;
 // });
 
 
-Route::get('/index' , [PostController::class, 'index']);
+Route::get('/index' , [PostController::class, 'index'])->name('post.index');
 
 
 Route::get('/about', function ()  {
