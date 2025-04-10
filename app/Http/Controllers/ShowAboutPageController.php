@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class showAboutPage extends Controller
+class ShowAboutPageController extends Controller
 {
     /**
      * Handle the incoming request.

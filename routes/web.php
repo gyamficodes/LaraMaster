@@ -3,7 +3,7 @@
 use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
-use App\Http\Controllers\ShowAboutPage;
+use App\Http\Controllers\ShowAboutPageController;
 
 use function Pest\Laravel\get;
 
@@ -17,7 +17,12 @@ Route::get('/', function () {
 Route::get('/index' , [PostController::class, 'index'])->name('post.index');
 
 
-Route::get('About', ShowAboutPage::class)->name('about');
+// Route::get('about',  ShowAboutPageController::class)->name('about');
+
+Route::get('about' , function() {
+  return view('about');
+} ) ->name('about');
+
 
 // Route::redirect("/contact", "/");
 Route::view("/contact", "contact");
