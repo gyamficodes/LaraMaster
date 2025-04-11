@@ -19,10 +19,8 @@ Route::get('/index' , [PostController::class, 'index'])->name('post.index');
 
 // Route::get('about',  ShowAboutPageController::class)->name('about');
 
-Route::get('about' , function() {
-  return view('about');
-} ) ->name('about');
+Route::view('about', 'about')->name('about');  // Add ->name('about')
 
 
 // Route::redirect("/contact", "/");
-Route::view("/contact", "contact");
+Route::view("/contact", "contact")->name('contact');
