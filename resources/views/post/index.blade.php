@@ -1,4 +1,3 @@
-
 <x-layoutcomp title="All Posts">
 
     <div class="container mx-auto px-4 py-8  flex flex-col gap-3.5">
@@ -32,12 +31,12 @@
                         </div>
                     </div>
                 </div>
- 
+
             @endforeach
-     
+
         </div>
-     <div>
-        {{ $posts->links() }}
-     </div>
+        <div>
+            {{ $posts->links() }}
+        </div>
     </div>
 </x-layoutcomp>
