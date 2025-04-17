@@ -15,9 +15,9 @@ Route::get('/', function () {
 
 
 Route::get('/index' , [PostController::class, 'index'])->name('post.index');
+route::get('/create', [PostController::class, 'create']);
 
 
-// Route::get('about',  ShowAboutPageController::class)->name('about');
 
 Route::get('about',  ShowAboutPageController::class)->name('about');  // Add ->name('about')
 

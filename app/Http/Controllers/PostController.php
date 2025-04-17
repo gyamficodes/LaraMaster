@@ -15,6 +15,11 @@ class PostController extends Controller
         return view('post.index', ['posts' => $post ]);
     }
 
+    public function create(){
+        return view('post.create');
+    }
+
+
     /**
      * Store a newly created resource in storage.
      */
