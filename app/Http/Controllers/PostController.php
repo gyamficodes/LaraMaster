@@ -12,11 +12,11 @@ class PostController extends Controller
     public function index()
     {
         $post = Post::with('user')->latest()->paginate(10);
-        return view('post.index', ['posts' => $post ]);
+        return view('posts.index', ['posts' => $post ]);
     }
 
     public function create(){
-        return view('post.create');
+        return view('posts.create');
     }
 
 
