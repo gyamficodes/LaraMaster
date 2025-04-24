@@ -4,7 +4,6 @@ use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ShowAboutPageController;
-
 use function Pest\Laravel\get;
 
 Route::get('/', function () {
@@ -15,8 +14,8 @@ Route::get('/', function () {
 
 
 Route::get('/index' , [PostController::class, 'index'])->name('post.index');
-route::get('/create', [PostController::class, 'create'])->name('post.create');
-
+Route::get('/create', [PostController::class, 'create'])->name('post.create');
+Route::post('posts', [PostController::class, 'store']);
 
 
 Route::get('about',  ShowAboutPageController::class)->name('about');  // Add ->name('about')

@@ -30,19 +30,24 @@
                     <x-form-label>Full Name</x-form-label>
                     <x-form-input name="name" type="text" aria-autocomplete="name" placeholder="John Doe" required
                         class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" />
-                      <x-error name="name"/>
+                    <x-error name="name" />
 
-                      <x-form-label>title</x-form-label>
-                      <x-form-input name="title" type="text"  placeholder=" message"/>
-                    <p class="text-xs text-gray-500">This will be displayed publicly</p>
+                    <x-form-label>title</x-form-label>
+                    <x-form-input name="title" type="text" placeholder=" Title" />
+                    <x-error name="tile" />
+                    {{-- <p class="text-xs text-gray-500">This will be displayed publicly</p> --}}
+                    <x-form-label>Post message</x-form-label>
+                    <x-form-input name="body" type="text" placeholder=" message" />
+                    <x-error name="body" />
+                    {{-- <p class="text-xs text-gray-500">This will be displayed publicly</p> --}}
                 </div>
 
-                
+
 
 
                 <!-- Submit Button -->
                 <div class="pt-4">
-
+                <x-button>Create Post</x-button>
 
                 </div>
             </form>
