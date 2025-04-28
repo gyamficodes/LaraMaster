@@ -13,11 +13,9 @@ Route::get('/', function () {
 })->name('/');
 
 
-Route::get('/index' , [PostController::class, 'index'])->name('post.index');
-Route::get('/create', [PostController::class, 'create'])->name('post.create');
-Route::post('posts', [PostController::class, 'store']);
-
-
+Route::get('/posts', [PostController::class, 'index'])->name('post.index');   // to show posts
+Route::get('/posts/create', [PostController::class, 'create'])->name('post.create');  // to show create form
+Route::post('/posts', [PostController::class, 'store']);  // to save post
 Route::get('about',  ShowAboutPageController::class)->name('about');  // Add ->name('about')
 
 // Route::redirect("/contact", "/");

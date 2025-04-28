@@ -1,2 +1,2 @@
-<a href="/post/create" href="{{$slot}}"
-    class=" h-[40px] w-[100px] bg-[#ccc] flex items-center justify-center text-black">{{$slot}}</a>
+<button  type="submit"
+    class=" h-[40px] w-[100px] bg-[#ccc] flex items-center justify-center text-black">{{$slot}}</button>

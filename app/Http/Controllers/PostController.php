@@ -25,9 +25,21 @@ class PostController extends Controller
      */
     public function store()
     {
-        //
+        request()->validate([
+            "title" => ['required', 'min:4'],
+            "name" => ['required'],
+            "body" => ['required', 'min:10'], 
+        ]);
+    
+        Post::create([
+            "title" => request('title'),
+            "name" => request('name'),
+            "body" => request('body'),
+            "user_id" => 1
+        ]);
+    
+        return redirect()->route('post.index'); // Redirect to posts list
     }
-
     /**
      * Display the specified resource.
      */
