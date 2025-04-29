@@ -11,7 +11,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $post = Post::with('user')->latest()->paginate(10);
+        $post = Post::with('user')->latest()->paginate(8);
         return view('posts.index', ['posts' => $post ]);
     }
 
@@ -38,7 +38,7 @@ class PostController extends Controller
             "user_id" => 1
         ]);
     
-        return redirect()->route('post.index'); // Redirect to posts list
+        return redirect()->route('post.index')->with('success', 'Post created successfully!');; // Redirect to posts list
     }
     /**
      * Display the specified resource.

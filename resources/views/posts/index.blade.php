@@ -1,5 +1,5 @@
 <x-layoutcomp title="All Posts">
-
+    <x-flash-message type="success" />
     <div class="container mx-auto px-4 py-8  flex flex-col gap-3.5">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             @foreach($posts as $post)

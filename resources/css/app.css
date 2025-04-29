@@ -9,3 +9,29 @@
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
 }
+
+
+
+ /* Hidden by default */
+ #flash-message {
+    position: fixed;
+    top: 20px;
+    right: -400px; /* Start hidden outside */
+    padding: 16px;
+    color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    transition: right 0.5s ease, opacity 0.5s ease;
+    z-index: 9999;
+}
+
+/* Slide in */
+#flash-message.show {
+    right: 20px;
+}
+
+/* Slide out */
+#flash-message.hide {
+    right: -400px;
+    opacity: 0;
+}
