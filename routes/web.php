@@ -16,7 +16,10 @@ Route::get('/', function () {
 Route::get('/posts', [PostController::class, 'index'])->name('post.index');   // to show posts
 Route::get('/posts/create', [PostController::class, 'create'])->name('post.create');  // to show create form
 Route::post('/posts', [PostController::class, 'store']);  // to save post
-Route::get('about',  ShowAboutPageController::class)->name('about');  // Add ->name('about')
+Route::get('posts/{post}', [PostController::class , 'show'] );
 
+
+
+Route::get('about',  ShowAboutPageController::class)->name('about');  // Add ->name('about')
 // Route::redirect("/contact", "/");
 Route::view("contact", "contact")->name('contact');

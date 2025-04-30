@@ -1,6 +1,6 @@
 @if (session($type))
     <div id="flash-message" class="flash-message 
-            {{ $type == 'success' ? 'bg-green-500' : 'bg-red-500' }}">
+                    {{ $type == 'success' ? 'bg-green-500' : 'bg-red-500' }}">
         <strong class="font-bold">{{ ucfirst($type) }}!</strong>
         <span>{{ session($type) }}</span>
     </div>
@@ -19,7 +19,7 @@
                     flash.classList.add('hide');
                 }, 9000);
 
-                // After animation, remove from DOM (optional)
+                // After animation, remove fbrom DOM (optional)
                 setTimeout(() => {
                     flash.remove();
                 }, 4500);
@@ -27,5 +27,5 @@
         });
     </script>
 
-  
+
 @endif
