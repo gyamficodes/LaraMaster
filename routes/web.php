@@ -16,7 +16,7 @@ Route::get('/', function () {
 Route::get('/posts', [PostController::class, 'index'])->name('post.index');   // to show posts
 Route::get('/posts/create', [PostController::class, 'create'])->name('post.create');  // to show create form
 Route::post('/posts', [PostController::class, 'store']);  // to save post
-Route::get('posts/{post}', [PostController::class , 'show'] );
+Route::get('/posts/{post}', [PostController::class , 'show'])->name('post.show');
 
 
 

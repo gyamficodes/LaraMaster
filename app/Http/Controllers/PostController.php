@@ -43,9 +43,9 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show( Post $post)
+    public function show(post $post)
     {
-         return view('posts.show', [$post => 'post']);
+         return view('posts.show', ['post' => $post]);
     }
 
     /**

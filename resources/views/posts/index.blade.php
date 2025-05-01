@@ -3,7 +3,7 @@
     <div class="container mx-auto px-4 py-8  flex flex-col gap-3.5">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             @foreach($posts as $post)
-                <div
+                <a href="{{ route('post.show', $post->id) }}"
                     class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 border border-gray-100">
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-gray-800 mb-2">
@@ -30,7 +30,7 @@
                             </span>
                         </div>
                     </div>
-                </div>
+                </a>
 
             @endforeach
 

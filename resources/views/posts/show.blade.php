@@ -1,6 +1,14 @@
-<x-layoutcomp  title="{{ $post->title }}">
+<x-layoutcomp title="{{ $post->title }}">
+   
+    <div class="container mx-auto px-4 py-8  flex flex-col gap-3.5">
+        <div class="mt-4">
+            <a href="{{ route('post.index') }}" class="inline-flex items-center text-blue-600 hover:underline">
+              ← Back to All Jobs
+            </a>
+          </div>
 
-    <div class="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100 hover:border-blue-100">
+        <div
+        class="lg:w-[40%] mx-auto mt-5 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100 hover:border-blue-100">
         <!-- Header with subtle accent -->
         <div class="px-6 pt-6 pb-2">
             <h3 class="text-xl font-semibold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
@@ -11,9 +19,9 @@
                 {{ Str::limit($post->body, 120) }}
             </p>
         </div>
-    
+
         <!-- Footer with author + time (minimalist) -->
-        <div class="px-6 py-4 bg-gray-50 rounded-b-xl flex items-center justify-between">
+        <div class="px-6 py-4 bg-gray-50  rounded-b-xl flex items-center justify-between">
             <div class="flex items-center space-x-2">
                 <!-- Avatar with soft color -->
                 <div class="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center">
@@ -30,9 +38,13 @@
             </span>
         </div>
     </div>
+    </div>
+
+
+    {{-- <div class="mt-4">
+            <a href="{{ route('post.edit' , $post->id) }}" class="inline-flex items-center text-blue-600 hover:underline">
+              ← Back to All Jobs
+            </a>
+          </div> --}}
 
 </x-layoutcomp>
-
-
-
-
