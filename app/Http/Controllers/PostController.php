@@ -40,6 +40,12 @@ class PostController extends Controller
     
         return redirect()->route('post.index')->with('success', 'Post created successfully!');; // Redirect to posts list
     }
+
+    public function edit(post $post)
+    {
+        return view('posts.edit', ['post' => $post]);
+    }
+
     /**
      * Display the specified resource.
      */
@@ -48,20 +54,32 @@ class PostController extends Controller
          return view('posts.show', ['post' => $post]);
     }
 
+ 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(post $post)
     {
-        //
+
+        $validatedData  =   request()->validate([
+            "title" => ['required', 'min:4'],
+            "name" => ['required'],
+            "body" => ['required', 'min:10'], 
+        ]);
+
+         
+            $post->update($validatedData);
+
+        return redirect()->route('post.index')->with('success' , 'Post updated successfully!');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(post $post)
     {
-        //
+        $post->delete();
+        return redirect()->route('post.index')->with('fail', 'Post deleted successfully!');
     }
 }
 

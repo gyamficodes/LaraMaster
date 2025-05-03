@@ -15,10 +15,10 @@
 
                 <!-- Name Field -->
                 <div class="space-y-2">
-                    <x-form-label>Full Name</x-form-label>
+                    {{-- <x-form-label>Full Name</x-form-label>
                     <x-form-input name="name" type="text" aria-autocomplete="name" placeholder="John Doe" required
                         class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" />
-                    <x-error name="name" />
+                    <x-error name="name" /> --}}
 
                     <x-form-label>title</x-form-label>
                     <x-form-input name="title" type="text" placeholder=" Title" />
