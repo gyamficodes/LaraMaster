@@ -19,7 +19,7 @@ Route::post('/posts', [PostController::class, 'store']);  // to save post
 Route::get('/posts/{post}/edit', [PostController::class , 'edit'])->name('post.edit');
 Route::patch('/posts/{post}' , [PostController::class, 'update']);
 Route::get('/posts/{post}', [PostController::class , 'show'])->name('post.show');
-Route::delete('post/{post}', [PostController::class, 'destroy']);
+Route::delete('/posts/{post}', [PostController::class, 'destroy']);
 
 Route::get('about',  ShowAboutPageController::class)->name('about');  // Add ->name('about')
 // Route::redirect("/contact", "/");

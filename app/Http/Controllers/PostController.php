@@ -41,7 +41,7 @@ class PostController extends Controller
         return redirect()->route('post.index')->with('success', 'Post created successfully!');; // Redirect to posts list
     }
 
-    public function edit(post $post)
+    public function edit(Post $post)
     {
         return view('posts.edit', ['post' => $post]);
     }
@@ -49,7 +49,7 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(post $post)
+    public function show(Post $post)
     {
          return view('posts.show', ['post' => $post]);
     }
@@ -58,7 +58,7 @@ class PostController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(post $post)
+    public function update(Post $post)
     {
 
         $validatedData  =   request()->validate([
@@ -76,10 +76,11 @@ class PostController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(post $post)
+    public function destroy(Post $post)
     {
         $post->delete();
-        return redirect()->route('post.index')->with('fail', 'Post deleted successfully!');
+
+        return redirect()->route('post.index')->with('success', 'Post deleted successfully!');
     }
 }
 
