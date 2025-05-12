@@ -24,7 +24,7 @@ Route::delete('/posts/{post}', [PostController::class, 'destroy']);
 
 
 //Authentication routes
-Route::get('/register', [ RegisterUserController::class ,'create'])->name('register'); // to show register form
+Route::get('/register', [ RegisterUserController::class ,'create'])->name('auth.register'); // to show register form
 
 
 // stactic pages

@@ -18,11 +18,11 @@
                             <div class="flex items-center">
                                 <div class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center mr-2">
                                     <span class="text-sm font-medium text-gray-600">
-                                        {{ strtoupper(substr($post->name, 0, 1)) }}
+                                        {{ strtoupper(substr($post->user->name, 0, 1)) }}
                                     </span>
                                 </div>
                                 <span class="text-sm text-gray-600">
-                                    {{ $post->name }}
+                                    {{ $post->user->name }}
                                 </span>
                             </div>
                             <span class="text-sm text-gray-500">
