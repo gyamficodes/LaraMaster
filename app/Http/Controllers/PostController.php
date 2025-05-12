@@ -27,13 +27,11 @@ class PostController extends Controller
     {
         request()->validate([
             "title" => ['required', 'min:4'],
-            "name" => ['required'],
             "body" => ['required', 'min:10'], 
         ]);
     
         Post::create([
             "title" => request('title'),
-            "name" => request('name'),
             "body" => request('body'),
             "user_id" => 1
         ]);
@@ -63,7 +61,6 @@ class PostController extends Controller
 
         $validatedData  =   request()->validate([
             "title" => ['required', 'min:4'],
-            "name" => ['required'],
             "body" => ['required', 'min:10'], 
         ]);
 

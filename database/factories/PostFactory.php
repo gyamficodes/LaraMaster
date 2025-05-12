@@ -21,7 +21,6 @@ class PostFactory extends Factory
         return [
             'user_id' => User::factory(),
             'title' => fake()->sentence(4),
-            'name'=>fake()->unique()->name(),
              'body' => fake()->paragraph(1, true),
         ];
     }
