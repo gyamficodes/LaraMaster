@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 class SessionController extends Controller
 {
   public function  create(){
+       return view('auth.login');
 
        }
 
@@ -14,5 +15,6 @@ class SessionController extends Controller
   public function store(): void{
 
   }
+
 
 }
