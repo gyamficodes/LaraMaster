@@ -4,6 +4,7 @@ use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegisterUserController;
+use App\Http\Controllers\SessionController;
 use App\Http\Controllers\ShowAboutPageController;
 use function Pest\Laravel\get;
 
@@ -22,10 +23,14 @@ Route::patch('/posts/{post}' , [PostController::class, 'update']);
 Route::get('/posts/{post}', [PostController::class , 'show'])->name('post.show');
 Route::delete('/posts/{post}', [PostController::class, 'destroy']);
 
-
 //Authentication routes
 Route::get('/register', [ RegisterUserController::class ,'create'])->name('auth.register'); // to show register form
-Route::post('/register', [ RegisterUserController::class, 'store']);
+Route::post('/register', [ RegisterUserController::class, 'store']); // to register user
+
+// Login routes
+Route::get('/login', [SessionController::class, 'create'])->name('auth.login'); // to show login form
+Route::post('/login', [SessionController::class, 'store']); // to login user
+Route::post('/logout', [SessionController::class, 'destroy']); // to logout user
 
 // stactic pages
 Route::get('about',  ShowAboutPageController::class)->name('about');  // Add ->name('about')

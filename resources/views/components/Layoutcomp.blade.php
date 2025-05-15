@@ -47,8 +47,17 @@
                     <a href="{{ route('about') }}"
                         class="text-gray-500 hover:text-gray-700 px-3 py-2 text-sm font-medium">About</a>
 
-                    {{-- <a href="{{ route('') }}"  class="">Login</a> --}}
+                        @guest
+                    <a href="{{ route('auth.login') }}"  class="">Login</a>
                     <a href="{{ route('auth.register') }}"  class="">register</a>
+                         @endguest
+                       
+                         @auth
+                         <form  method="POST" action="/logout">
+                                   @csrf
+                             <x-button>Logout</x-button>
+                        </form>
+                           @endauth    
 
                     <a href="{{ route('contact') }}"
                         class="ml-4 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700">

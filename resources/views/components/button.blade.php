@@ -1,1 +1,1 @@
-<button  type="submit" class=" h-[40px] w-[100px] bg-[#ccc] flex items-center justify-center text-black">{{$slot}}</button>
+<button  type="submit" class=" h-[40px] w-[100px] bg-[#ccc] flex items-center justify-center text-black cursor-pointer rounded-md">{{$slot}}</button>
