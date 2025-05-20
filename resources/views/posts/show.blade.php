@@ -26,7 +26,7 @@
                     <!-- Avatar with soft color -->
                     <div class="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center">
                         <span class="text-sm font-medium text-blue-600">
-                            {{ strtoupper(substr($post->name, 0, 1)) }}
+                            {{ strtoupper(substr($post->user->name, 0, 1)) }}
                         </span>
                     </div>
                     <span class="text-sm text-gray-700">
