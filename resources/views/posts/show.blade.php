@@ -30,7 +30,7 @@
                         </span>
                     </div>
                     <span class="text-sm text-gray-700">
-                        {{ $post->name }}
+                        {{ $post->user->name }}
                     </span>
                 </div>
                 <span class="text-xs text-gray-400">
