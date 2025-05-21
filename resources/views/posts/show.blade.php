@@ -44,9 +44,4 @@
             </a>
         </div>
     </div>
-
-
- 
-    
-
 </x-layoutcomp>
