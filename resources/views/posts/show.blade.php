@@ -1,3 +1,5 @@
+
+
 <x-layoutcomp title="{{ $post->title }}">
 
     <div class="lg:w-[60%] mx-auto px-4 py-8  flex flex-col gap-3.5">
@@ -6,7 +8,6 @@
                 ← Back to All Jobs
             </a>
         </div>
-
         <div
             class="lg:w-[40%] mx-auto mt-5 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100 hover:border-blue-100">
             <!-- Header with subtle accent -->
@@ -39,6 +40,7 @@
             </div>
         </div>
         <div  class="mt-4 text-center px-3 py-3 w-[100px] mx-auto bg-gray-800 ">
+            
             <a href="{{ route('post.edit' , $post->id) }}" class="inline-flex items-center !text-white hover:underline">
              Edit Post
             </a>

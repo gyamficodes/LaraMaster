@@ -15,12 +15,14 @@ class FlashMessage extends Component
      public $type;
      public $message;
 
-    public function __construct($type = 'success', $message = '')
+    public function __construct($type = 'success' , $message = '')
     {
          $this->type = $type;
          $this->message = $message;
     }
 
+    
+    
     /**
      * Get the view / contents that represent the component.
      */

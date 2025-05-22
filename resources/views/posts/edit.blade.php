@@ -5,12 +5,7 @@
             @method('PATCH')
             <!-- Name Field -->
             <div class="space-y-2">
-                {{-- <x-form-label>Full Name</x-form-label>
-                <x-form-input name="name" value="{{ $post->name }}" type="text" aria-autocomplete="name"
-                    placeholder="John Doe" required
-                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" />
-                <x-error name="name" /> --}}
-    
+          
                 <x-form-label>title</x-form-label>
                 <x-form-input name="title" value="{{ $post->title }}" type="text" placeholder=" Title" />
                 <x-error name="title" />
@@ -28,10 +23,13 @@
                 </div>
                
                 <div>
-                    <div class=" flex items-center gap-5">
+                    
+                     <div class=" flex items-center gap-5">
                         <a  href="{{ route('post.show' , $post->id) }}">Cancel</a>
                         <button  type="submit">Update</button>
                     </div>
+                 
+                   
                 </div>
             </div>
         </form>

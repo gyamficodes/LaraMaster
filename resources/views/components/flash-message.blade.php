@@ -1,31 +1,44 @@
-@if (session($type))
-    <div id="flash-message" class="flash-message 
-                    {{ $type == 'success' ? 'bg-green-500' : 'bg-red-500' }}">
-        <strong class="font-bold">{{ ucfirst($type) }}!</strong>
-        <span>{{ session($type) }}</span>
-    </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const flash = document.getElementById('flash-message');
+@php
+    $types = ['success', 'error', 'warning', 'info'];
+@endphp
 
-            if (flash) {
-                // Slide in
-                flash.classList.add('show');
+@foreach ($types as $type)
+    @if (session($type))
+        <div id="flash-message-{{ $type }}"
+             class="flash-message fixed top-5 right-5 z-50 w-[300px] px-4 py-3 rounded shadow-lg text-white
+                    {{ $type == 'success' ? 'bg-green-500' : '' }}
+                    {{ $type == 'error' ? 'bg-red-500' : '' }}
+                    {{ $type == 'warning' ? 'bg-yellow-500 text-black' : '' }}
+                    {{ $type == 'info' ? 'bg-blue-500' : '' }}
+                    translate-x-full opacity-0 transition duration-500 ease-out">
+            <strong class="font-bold">{{ ucfirst($type) }}:</strong>
+            <span class="ml-1">{{ session($type) }}</span>
+        </div>
 
-                // Wait 3 seconds, then slide out
-                setTimeout(() => {
-                    flash.classList.remove('show');
-                    flash.classList.add('hide');
-                }, 9000);
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const flash = document.getElementById('flash-message-{{ $type }}');
 
-                // After animation, remove fbrom DOM (optional)
-                setTimeout(() => {
-                    flash.remove();
-                }, 4500);
-            }
-        });
-    </script>
+                if (flash) {
+                    // Slide in
+                    setTimeout(() => {
+                        flash.classList.remove('translate-x-full', 'opacity-0');
+                        flash.classList.add('translate-x-0', 'opacity-100');
+                    }, 100);
 
+                    // Slide out after delay
+                    setTimeout(() => {
+                        flash.classList.remove('translate-x-0', 'opacity-100');
+                        flash.classList.add('translate-x-full', 'opacity-0');
+                    }, 5000);
 
-@endif
+                    // Remove from DOM
+                    setTimeout(() => {
+                        flash.remove();
+                    }, 6000);
+                }
+            });
+        </script>
+    @endif
+@endforeach
