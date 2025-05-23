@@ -12,7 +12,7 @@
                 {{-- <p class="text-xs text-gray-500">This will be displayed publicly</p> --}}
                 <x-form-label>Post message</x-form-label>
                 <textarea name="body"
-                    class="flex rounded-md shadow-sm ring-1 ring-inset p-2 ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md w-full">{{ old('body', $post->body) }}</textarea>
+                    class="flex rounded-md shadow-sm ring-1 ring-inset p-2 ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 h-[200px]  w-full">{{ old('body', $post->body) }}</textarea>
                 <x-error name="body" />
                 {{-- <p class="text-xs text-gray-500">This will be displayed publicly</p> --}}
 

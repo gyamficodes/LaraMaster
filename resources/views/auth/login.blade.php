@@ -45,8 +45,8 @@
                 </div>
 
                 <div class="flex items-center justify-between mt-6">
-                    <a href="/login" class="text-sm font-medium text-blue-600 hover:text-blue-500 transition duration-200">
-                        Already have an account?
+                    <a href="{{ route('auth.register') }}" class="text-sm font-medium text-blue-600 hover:text-blue-500 transition duration-200">
+                        If you dont have an account?
                     </a>
                     
                     <x-button class="px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-medium rounded-lg shadow-sm transition duration-200 transform hover:-translate-y-0.5">
