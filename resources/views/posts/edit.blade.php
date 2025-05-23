@@ -23,7 +23,7 @@
                 </div>
                
                 <div>
-                    
+                
                      <div class=" flex items-center gap-5">
                         <a  href="{{ route('post.show' , $post->id) }}">Cancel</a>
                         <button  type="submit">Update</button>

@@ -39,11 +39,12 @@
                 </span>
             </div>
         </div>
+        @can('update', $post)
         <div  class="mt-4 text-center px-3 py-3 w-[100px] mx-auto bg-gray-800 ">
-            
             <a href="{{ route('post.edit' , $post->id) }}" class="inline-flex items-center !text-white hover:underline">
              Edit Post
             </a>
         </div>
+        @endcan
     </div>
 </x-layoutcomp>
