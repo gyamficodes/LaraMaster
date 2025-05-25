@@ -32,7 +32,6 @@
             </div>
             <x-error name="title" />
         </div>
-
         <!-- Body Field -->
         <div class="space-y-3">
             <label class="block text-sm font-medium text-gray-700">Post Message</label>
