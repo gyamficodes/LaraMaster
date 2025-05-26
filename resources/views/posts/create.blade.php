@@ -13,7 +13,6 @@
     <!-- Form -->
     <form method="POST" action="/posts" class="space-y-8">
         @csrf
-
         <!-- Title Field -->
         <div class="space-y-3">
             <label class="block text-sm font-medium text-gray-700">Title</label>
@@ -61,6 +60,5 @@
         </div>
     </form>
 </div>
-
 
 </x-layoutcomp>
