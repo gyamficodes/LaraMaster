@@ -1,5 +1,3 @@
-
-
 <x-layoutcomp title="{{ $post->title }}">
 
     <div class="lg:w-[60%] mx-auto px-4 py-8  flex flex-col gap-3.5">
@@ -9,15 +7,16 @@
             </a>
         </div>
         <div
-            class="lg:w-[40%] mx-auto mt-5 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100 hover:border-blue-100">
+            class="lg:w-[70%] mx-auto mt-5 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100 hover:border-blue-100">
             <!-- Header with subtle accent -->
             <div class="px-6 pt-6 pb-2">
                 <h3 class="text-xl font-semibold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
                     {{ $post->title }}
                 </h3>
                 <!-- Body text with gradient fade (for long content) -->
-                <p class="text-gray-600 mb-4 line-clamp-3 bg-gradient-to-b from-gray-600 to-transparent bg-clip-text ">
-                    {{ Str::limit($post->body, 120) }}
+                <p
+                    class="text-gray-600 mb-4  h-auto w-full bg-gradient-to-b from-gray-600 to-transparent bg-clip-text ">
+                    {{ $post->body }}
                 </p>
             </div>
 
@@ -40,11 +39,11 @@
             </div>
         </div>
         @can('update', $post)
-        <div  class="mt-4 text-center px-3 py-3 w-[100px] mx-auto bg-gray-800 ">
-            <a href="{{ route('post.edit' , $post->id) }}" class="inline-flex items-center !text-white hover:underline">
-             Edit Post
-            </a>
-        </div>
+            <div class="mt-4 text-center px-3 py-3 w-[100px] mx-auto bg-gray-800 ">
+                <a href="{{ route('post.edit', $post->id) }}" class="inline-flex items-center !text-white hover:underline">
+                    Edit Post
+                </a>
+            </div>
         @endcan
     </div>
 </x-layoutcomp>
