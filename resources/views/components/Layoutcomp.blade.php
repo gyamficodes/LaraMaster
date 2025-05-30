@@ -25,7 +25,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                         </svg>
-                        <span class="ml-2 text-xl font-bold text-gray-900">PostApp</span>
+                        <span class="ml-2 text-xl font-bold text-gray-900">POSTODAY</span>
                     </a>
                 </div>
 
@@ -38,7 +38,7 @@
                 <div class="hidden space-x-1 sm:ml-6 sm:flex sm:items-center">
                     <a href="{{ route('post.index') }}"
                         class="border-indigo-500 text-gray-900 inline-flex items-center  pt-1 border-b-2 text-sm font-medium">
-                        Home
+                        Post
                     </a>
                     <a href="{{ route('post.create') }}"
                         class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 ml-3 inline-flex items-center  pt-1 border-b-2 text-sm font-medium">
@@ -47,17 +47,17 @@
                     <a href="{{ route('about') }}"
                         class="text-gray-500 hover:text-gray-700 px-3 py-2 text-sm font-medium">About</a>
 
-                        @guest
-                    <a href="{{ route('auth.login') }}"  class="">Login</a>
-                    <a href="{{ route('auth.register') }}"  class="">register</a>
-                         @endguest
-                       
-                         @auth
-                         <form  method="POST" action="/logout">
-                                   @csrf
-                             <x-button>Logout</x-button>
+                    @guest
+                        <a href="{{ route('auth.login') }}" class="">Login</a>
+                        <a href="{{ route('auth.register') }}" class="">register</a>
+                    @endguest
+
+                    @auth
+                        <form method="POST" action="/logout">
+                            @csrf
+                            <x-button>Logout</x-button>
                         </form>
-                           @endauth    
+                    @endauth
 
                     <a href="{{ route('contact') }}"
                         class="ml-4 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700">
@@ -101,7 +101,16 @@
     <main>
         {{ $slot }}
     </main>
-
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Footer sections here -->
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>© 2023 SkillShare. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 </body>
 
 </html>
