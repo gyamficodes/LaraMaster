@@ -154,19 +154,5 @@
                 </div>
             </div>
         </section>
-
-        <!-- CTA Section -->
-        <section class="py-16 bg-gradient-to-r from-indigo-500 to-purple-600 text-white">
-            <div class="max-w-4xl mx-auto px-4 text-center">
-                <h2 class="text-3xl font-bold mb-4">Ready to share your skills?</h2>
-                <p class="text-xl mb-8">Join thousands of professionals sharing their knowledge and services</p>
-                <a href="#"
-                    class="inline-block bg-white text-indigo-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition text-lg">
-                    Get Started - It's Free
-                </a>
-            </div>
-        </section>
-
-
     </div>
 </x-layoutcomp>

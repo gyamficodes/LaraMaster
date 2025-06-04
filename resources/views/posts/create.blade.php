@@ -1,6 +1,4 @@
 <x-layoutcomp title="Create Post">
-
-
    <div class="max-w-2xl mx-auto mt-[70px] px-4 sm:px-6 lg:px-8 py-8 bg-gradient-to-br from-white to-gray-50 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100">
     <!-- Header -->
     <div class="text-center mb-10">
