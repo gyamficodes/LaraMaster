@@ -37,11 +37,12 @@ class PostController extends Controller
         request()->validate([
             "title" => ['required', 'min:4'],
             "body" => ['required', 'min:10'],
+            "image" => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'], // Validate image file
         ]);
-
         Post::create([
             "title" => request('title'),
             "body" => request('body'),
+            "image" => request('image'),
             "user_id" => Auth::id(), // Get the ID of the currently authenticated user
         ]);
 
