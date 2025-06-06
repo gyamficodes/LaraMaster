@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -14,7 +15,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $post = Post::with('user')->latest()->paginate(8);
+        $post = Post::with('user')->latest()->paginate(6);
         return view('posts.index', ['posts' => $post]);
     }
 
@@ -31,23 +32,29 @@ class PostController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store()
+    public function store(Request $request)
     {
 
-        request()->validate([
+        $validatedData = $request->validate([
             "title" => ['required', 'min:4'],
             "body" => ['required', 'min:10'],
             "image" => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'], // Validate image file
         ]);
-        Post::create([
-            "title" => request('title'),
-            "body" => request('body'),
-            "image" => request('image'),
+
+        $data = [
+            "title" => $validatedData['title'],
+            "body" => $validatedData['body'],
             "user_id" => Auth::id(), // Get the ID of the currently authenticated user
-        ]);
+        ];
+
+        if ($request->hasFile('image')) {
+            $path = $request->file('image')->store('posts', 'public');
+            $data['image'] = $path; // e.g., "posts/ABC123.jpg"
+        }
+
+        Post::create($data);
 
         return redirect()->route('post.index')->with('success', 'Post created successfully!');
-        ; // Redirect to posts list
     }
 
     public function edit(Post $post)
@@ -82,16 +89,26 @@ class PostController extends Controller
      */
     public function update(Post $post)
     {
-        $this->authorize('update', $post);
+          $validatedData = request()->validate([
+        "title" => ['required', 'min:4'],
+        "body" => ['required', 'min:10'],
+        "image" => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
+    ]);
 
-        $validatedData = request()->validate([
-            "title" => ['required', 'min:4'],
-            "body" => ['required', 'min:10'],
-        ]);
+    if (request()->hasFile('image')) {
+        // Delete the old image if it exists
+        if ($post->image && Storage::disk('public')->exists($post->image)) {
+            Storage::disk('public')->delete($post->image);
+        }
+        $path = request()->file('image')->store('posts', 'public');
+        $validatedData['image'] = $path;
+    } else {
+        unset($validatedData['image']);
+    }
 
-        $post->update($validatedData);
+    $post->update($validatedData);
 
-        return redirect()->route('post.index')->with('success', 'Post updated successfully!');
+    return redirect()->route('post.index')->with('success', 'Post updated successfully!');
     }
 
     /**

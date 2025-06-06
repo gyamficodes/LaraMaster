@@ -1,6 +1,6 @@
 <x-layoutcomp title="Create Post">
     <div
-        class="max-w-2xl mx-auto mt-[70px] px-4 sm:px-6 lg:px-8 py-8 bg-gradient-to-br from-white to-gray-50 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100">
+        class="max-w-2xl  mx-auto mt-[70px] px-4 sm:px-6 lg:px-8 py-8 bg-gradient-to-br from-white to-gray-50 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100">
         <!-- Header -->
         <div class="text-center mb-10">
             <h2 class="text-3xl font-bold text-gray-800 bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-500">
@@ -10,7 +10,7 @@
         </div>
 
         <!-- Form -->
-        <form method="POST" action="/posts" class="space-y-8">
+        <form method="POST" action="/posts" enctype="multipart/form-data" class="space-y-8">
             @csrf
             <!-- Title Field -->
             <div class="space-y-3">
@@ -42,14 +42,29 @@
                 </div>
                 <x-error name="body" />
             </div>
-            <input type="file" name="image">
+            {{-- <input type="file" name="image"> --}}
+            <!-- filepath: d:\MyDocument\Lesson\LaraMaster\resources\views\posts\create.blade.php -->
+            <!-- Image Upload Field -->
+            <div class="space-y-3">
+                <label class="block text-sm font-medium text-gray-700">Image (optional)</label>
+                <div class="relative flex items-center">
+                    <label
+                        class="cursor-pointer inline-flex items-center px-4 py-2 bg-indigo-600 text-white rounded-lg shadow hover:bg-indigo-700 transition-colors duration-200">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5-5 5 5M12 15V3" />
+                        </svg>
+                        <span id="file-label">Choose Image</span>
+                        <input type="file" name="image" class="hidden"
+                            onchange="document.getElementById('file-label').innerText = this.files[0]?.name || 'Choose Image'">
+                    </label>
+                </div>
+                <x-error name="image" />
+            </div>
             <!-- Submit Button -->
             <div class="pt-2">
                 <x-button
                     class="w-full flex justify-center items-center py-3 px-6 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-semibold rounded-lg shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200">
-                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
-                    </svg>
                     Create Post
                 </x-button>
             </div>

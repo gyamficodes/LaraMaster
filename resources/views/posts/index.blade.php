@@ -5,6 +5,8 @@
             @foreach($posts as $post)
                 <a href="{{ route('post.show', $post->id) }}"
                     class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 border border-gray-100">
+                   <img src="{{ $post->image ? asset('storage/' . $post->image) : 'https://via.placeholder.com/500' }}"
+    alt="Post image" class="w-full h-48 object-cover">
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-gray-800 mb-2">
                             {{ $post->title }}
