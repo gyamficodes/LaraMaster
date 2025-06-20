@@ -6,13 +6,11 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegisterUserController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\ShowAboutPageController;
+use App\Http\Controllers\WelcomeController;
+
 use function Pest\Laravel\get;
 
-Route::get('/', function () {
-  //  $PostList = Post::all();
-  //  dump($PostList);
-  return view('welcome');
-})->name('/');
+Route::get('/' , WelcomeController::class)->name('/');
 
 
 Route::get('/posts', [PostController::class, 'index'])->name('post.index');   // to show posts

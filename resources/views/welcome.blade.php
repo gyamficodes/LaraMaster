@@ -25,72 +25,41 @@
                 <a href="#" class="text-indigo-600 hover:underline">View all</a>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Post Card 1 -->
-                <div
-                    class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition transform hover:-translate-y-1">
-                    <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
-                        alt="Blog post" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <div class="flex items-center mb-2">
-                            <div class="bg-indigo-100 p-2 rounded-full">
-                                <i class="fas fa-code text-indigo-600"></i>
-                            </div>
-                            <span class="ml-2 text-sm text-gray-600">Web Development</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">Building Modern Web Apps with Laravel</h3>
-                        <p class="text-gray-600 mb-4 line-clamp-2">Learn how to create responsive web applications using
-                            the latest Laravel features and Tailwind CSS for styling...</p>
-                        <div class="flex justify-between items-center text-sm">
-                            <span class="text-gray-500">By Sarah Johnson • 3h ago</span>
-                            <a href="#" class="text-indigo-600 hover:underline">Read</a>
-                        </div>
-                    </div>
-                </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                @foreach($posts as $post)
+                    <a href="{{ route('post.show', $post->id) }}"
+                        class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 border border-gray-100">
+                        <img src="{{ $post->image ? asset('storage/' . $post->image) : 'https://via.placeholder.com/500' }}"
+                            alt="Post image" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">
+                                {{ $post->title }}
+                            </h3>
 
-                <!-- Post Card 2 -->
-                <div
-                    class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition transform hover:-translate-y-1">
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
-                        alt="Blog post" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <div class="flex items-center mb-2">
-                            <div class="bg-pink-100 p-2 rounded-full">
-                                <i class="fas fa-chart-line text-pink-600"></i>
-                            </div>
-                            <span class="ml-2 text-sm text-gray-600">Business</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">Freelancing in 2023: What's Changed?</h3>
-                        <p class="text-gray-600 mb-4 line-clamp-2">The freelance economy has undergone massive changes
-                            this year. Here's what you need to know to stay competitive...</p>
-                        <div class="flex justify-between items-center text-sm">
-                            <span class="text-gray-500">By Michael Chen • 1d ago</span>
-                            <a href="#" class="text-indigo-600 hover:underline">Read</a>
-                        </div>
-                    </div>
-                </div>
+                            <p class="text-gray-600 mb-4 line-clamp-3">
+                                {{ Str::limit($post->body, 120) }}
+                            </p>
 
-                <!-- Post Card 3 -->
-                <div
-                    class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition transform hover:-translate-y-1">
-                    <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
-                        alt="Blog post" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <div class="flex items-center mb-2">
-                            <div class="bg-purple-100 p-2 rounded-full">
-                                <i class="fas fa-camera text-purple-600"></i>
+                            <div class="flex items-center justify-between pt-3 border-t border-gray-100">
+                                <div class="flex items-center">
+                                    <div class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center mr-2">
+                                        <span class="text-sm font-medium text-gray-600">
+                                            {{ strtoupper(substr($post->user->name, 0, 1)) }}
+                                        </span>
+                                    </div>
+                                    <span class="text-sm text-gray-600">
+                                        {{ $post->user->name }}
+                                    </span>
+                                </div>
+                                <span class="text-sm text-gray-500">
+                                    {{ $post->created_at->diffForHumans() }}
+                                </span>
                             </div>
-                            <span class="ml-2 text-sm text-gray-600">Photography</span>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">Mobile Photography Tips for Beginners</h3>
-                        <p class="text-gray-600 mb-4 line-clamp-2">You don't need expensive equipment to take great
-                            photos. Here are 10 techniques to improve your mobile photography...</p>
-                        <div class="flex justify-between items-center text-sm">
-                            <span class="text-gray-500">By Emma Rodriguez • 2d ago</span>
-                            <a href="#" class="text-indigo-600 hover:underline">Read</a>
-                        </div>
-                    </div>
-                </div>
+                    </a>
+
+                @endforeach
+
             </div>
         </section>
 
