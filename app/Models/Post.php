@@ -19,3 +19,4 @@ protected $fillable = ['title','body', 'user_id', 'image'];
  }
 
 }
+2

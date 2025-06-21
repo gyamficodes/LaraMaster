@@ -103,7 +103,7 @@
     </main>
     <!-- Footer -->
     <footer class="bg-gray-800 text-white py-12">
-        <div class="max-w-6xl mx-auto px-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-4 gap-8">
                 <div>
                     <h3 class="text-lg font-bold mb-4">Postoday</h3>

@@ -22,7 +22,7 @@
         <section id="trending" class="max-w-6xl mx-auto px-4 py-16">
             <div class="flex justify-between items-center mb-8">
                 <h2 class="text-2xl font-bold text-gray-800">Trending Today</h2>
-                <a href="#" class="text-indigo-600 hover:underline">View all</a>
+                <a href="{{ route('post.index') }}" class="text-indigo-600 hover:underline">View all</a>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
