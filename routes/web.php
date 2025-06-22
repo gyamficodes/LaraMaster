@@ -7,11 +7,16 @@ use App\Http\Controllers\RegisterUserController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\ShowAboutPageController;
 use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\ProfileController;
 
 use function Pest\Laravel\get;
 
 Route::get('/' , WelcomeController::class)->name('/');
 
+// Profile routes
+Route::sengleton('/profile', ProfileController::class)
+    ->name('profile')
+    ->middleware('auth'); // Ensure the profile route is protected by authentication
 
 Route::get('/posts', [PostController::class, 'index'])->name('post.index');   // to show posts
 Route::get('/posts/create', [PostController::class, 'create'])->name('post.create');  // to show create form
