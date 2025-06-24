@@ -53,6 +53,10 @@
                     @endguest
 
                     @auth
+                         <div class=" relative">
+             <img src="{{ $user->avatar }}" alt="{{ $user->name }}" class="w-16 h-16 rounded-full">
+
+                         </div>
                         <form method="POST" action="/logout">
                             @csrf
                             <x-button>Logout</x-button>

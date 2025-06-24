@@ -27,5 +27,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         //
+          view()->composer('*', function ($view) {
+        $view->with('user', \Illuminate\Support\Facades\Auth::user());
+    });
     }
 }
