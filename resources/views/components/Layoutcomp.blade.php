@@ -53,10 +53,32 @@
                     @endguest
 
                     @auth
-                         <div class=" relative">
-             <img src="{{ $user->avatar }}" alt="{{ $user->name }}" class="w-16 h-16 rounded-full">
+                        <div class=" relative">
+                            <img src="{{ $user->avatar }}" alt="{{ $user->name }}"
+                                class="w-[40px] h-[40px] rounded-full object-center">
+                            <div class="absolute top-0 right-0 bg-green-500 rounded-full w-3 h-3 border-2 border-white">
+                            </div>
+                            <div
+                                class="absolute w-[300px] h-auto bg-white shadow-2xl rounded-2xl mt-2 transition-all duration-300 ease-in-out group-hover:block z-50">
+                                <div class="p-6 space-y-3">
+                                    <div class="flex items-center space-x-4">
+                                                 <img src="{{ $user->avatar }}" alt="{{ $user->name }}"
+                                class="w-[40px] h-[40px] rounded-full object-center">
+                                        <div>
+                                            <h3 class="text-xl font-semibold text-gray-800">{{ $user->name }}</h3>
+                                            <p class="text-sm text-gray-500">{{ $user->email }}</p>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <a href="{{ route('profile.show') }}"
+                                            class="inline-block mt-3 px-4 py-2 text-sm font-medium text-white bg-indigo-600 rounded-lg hover:bg-indigo-700 transition">
+                                            View Profile
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
 
-                         </div>
+                        </div>
                         <form method="POST" action="/logout">
                             @csrf
                             <x-button>Logout</x-button>
