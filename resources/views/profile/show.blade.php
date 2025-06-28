@@ -8,7 +8,9 @@
 
         <div class="bg-white rounded-lg shadow-md p-6">
             <div class="flex items-center space-x-4 mb-4">
-                <img src="{{ $user->avatar }}" alt="{{ $user->name }}" class="w-16 h-16 rounded-full">
+                <img src="{{ $user->avatar ? asset('storage/' . $user->avatar) : asset('images/default-image.png') }}"
+     alt="{{ $user->name }}"
+     class="w-16 h-16 rounded-full">
                 <div>
                     <h3 class="text-xl font-semibold">{{ $user->name }}</h3>
                     <p class="text-gray-500">{{ $user->email }}</p>

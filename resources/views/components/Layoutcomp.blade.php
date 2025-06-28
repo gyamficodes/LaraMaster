@@ -54,35 +54,53 @@
 
                     @auth
                         <div class=" relative">
-                            <img src="{{ $user->avatar }}" alt="{{ $user->name }}"
-                                class="w-[40px] h-[40px] rounded-full object-center">
+                                           <img title="Personal" src="{{ $user->avatar ? asset('storage/' . $user->avatar) : asset('images/default-image.png') }}"
+     alt="{{ $user->name }}"
+     class="w-[50px] h-[50px] rounded-full">
                             <div class="absolute top-0 right-0 bg-green-500 rounded-full w-3 h-3 border-2 border-white">
                             </div>
                             <div
                                 class="absolute w-[300px] h-auto bg-white shadow-2xl rounded-2xl mt-2 transition-all duration-300 ease-in-out group-hover:block z-50">
                                 <div class="p-6 space-y-3">
-                                    <div class="flex items-center space-x-4">
-                                                 <img src="{{ $user->avatar }}" alt="{{ $user->name }}"
-                                class="w-[40px] h-[40px] rounded-full object-center">
+                                    <div class=" flex items-center justify-between">
+                                      <div class="flex items-center space-x-4">
+                                          <img src="{{ $user->avatar ? asset('storage/' . $user->avatar) : asset('images/default-image.png') }}"
+     alt="{{ $user->name }}"
+     class="w-16 h-16 rounded-full">
                                         <div>
                                             <h3 class="text-xl font-semibold text-gray-800">{{ $user->name }}</h3>
                                             <p class="text-sm text-gray-500">{{ $user->email }}</p>
                                         </div>
                                     </div>
-                                    <div>
+                                       <div>
                                         <a href="{{ route('profile.show') }}"
-                                            class="inline-block mt-3 px-4 py-2 text-sm font-medium text-white bg-indigo-600 rounded-lg hover:bg-indigo-700 transition">
-                                            View Profile
+                                            class="">
+                                           <a href="{{ route('profile.show') }}"
+   class="inline-flex items-center justify-center w-10 h-10 rounded-md text-gray-600 hover:text-indigo-600 hover:bg-gray-100 transition duration-200">
+    <!-- Settings Icon (Heroicons) -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+              d="M11.25 3c.414 0 .75.336.75.75v.743a8.977 8.977 0 012.51.943l.525-.526a.75.75 0 011.061 0l1.061 1.06a.75.75 0 010 1.062l-.525.525a8.978 8.978 0 01.943 2.51h.743a.75.75 0 01.75.75v1.5a.75.75 0 01-.75.75h-.743a8.978 8.978 0 01-.943 2.51l.525.525a.75.75 0 010 1.061l-1.06 1.061a.75.75 0 01-1.062 0l-.525-.525a8.977 8.977 0 01-2.51.943v.743a.75.75 0 01-.75.75h-1.5a.75.75 0 01-.75-.75v-.743a8.977 8.977 0 01-2.51-.943l-.525.525a.75.75 0 01-1.061 0l-1.061-1.06a.75.75 0 010-1.062l.525-.525a8.978 8.978 0 01-.943-2.51H3.75a.75.75 0 01-.75-.75v-1.5c0-.414.336-.75.75-.75h.743a8.978 8.978 0 01.943-2.51l-.525-.525a.75.75 0 010-1.061l1.06-1.061a.75.75 0 011.062 0l.525.525a8.977 8.977 0 012.51-.943V3.75c0-.414.336-.75.75-.75h1.5zM12 15.75a3.75 3.75 0 100-7.5 3.75 3.75 0 000 7.5z" />
+    </svg>
+</a>
+
                                         </a>
                                     </div>
+
+
+                                    </div>
+                                  
+                                   
+
+                                     <form method="POST" action="/logout">
+                            @csrf
+                            <x-button>Logout</x-button>
+                        </form>
                                 </div>
                             </div>
 
                         </div>
-                        <form method="POST" action="/logout">
-                            @csrf
-                            <x-button>Logout</x-button>
-                        </form>
+                       
                     @endauth
 
                     <a href="{{ route('contact') }}"
