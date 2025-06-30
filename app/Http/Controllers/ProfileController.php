@@ -52,27 +52,26 @@ class ProfileController extends Controller
     public function update(Request $request)
     {
         //
-
-     $user = User::find(Auth::id());
-$validatedData = $request->validate([
-    'name' => 'required|string|max:255',
-    'email' => 'required|email|max:255|unique:users,email,'.$user->id,
-    'avatar' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
-    'password' => 'nullable|string|min:8|confirmed',
-    'bio' => 'nullable|string|max:500' ,
-]);
+        $user = User::find(Auth::id());
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255|unique:users,email,' . $user->id,
+            'avatar' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+            'password' => 'nullable|string|min:8|confirmed',
+            'bio' => 'nullable|string|max:500',
+        ]);
 
         $user->name = $validatedData['name'];
         $user->email = $validatedData['email'];
 
-  if ($request->hasFile('avatar')) {
-        // Delete the old avatar if it exists
-        if ($user->avatar && Storage::disk('public')->exists($user->avatar)) {
-            Storage::disk('public')->delete($user->avatar);
+        if ($request->hasFile('avatar')) {
+            // Delete the old avatar if it exists
+            if ($user->avatar && Storage::disk('public')->exists($user->avatar)) {
+                Storage::disk('public')->delete($user->avatar);
+            }
+            $path = $request->file('avatar')->store('avatars', 'public');
+            $user->avatar = $path;
         }
-        $path = $request->file('avatar')->store('avatars', 'public');
-        $user->avatar = $path;
-    }
         if (!empty($validatedData['password'])) {
             $user->password =   Hash::make($validatedData['password']);
         }
@@ -82,8 +81,6 @@ $validatedData = $request->validate([
         $user->save();
 
         return redirect()->route('profile.show')->with('success', 'Profile updated successfully!');
-
-
     }
 
     /**

@@ -5,7 +5,7 @@
         <div class="max-w-2xl mx-auto bg-white rounded-xl shadow-lg p-8">
             <h2 class="text-2xl font-bold mb-6">Edit Profile</h2>
 
-            <form method="POST" action="/profile/{{ $user->id }}" enctype="multipart/form-data" class="space-y-6">
+            <form method="POST" action="{{ route('profile.update') }}" enctype="multipart/form-data" class="space-y-6">
                 @csrf
                 @method('PATCH')
 
@@ -24,7 +24,8 @@
                             </svg>
                         </div>
                     </div>
-                    <x-error name="name" />
+                    <form method="POST" action="/profile/{{ $user->id }}" ...>
+                        <x-error name="name" />
                 </div>
 
                 <!-- Email Field -->
