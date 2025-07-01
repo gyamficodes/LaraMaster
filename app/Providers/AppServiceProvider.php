@@ -4,6 +4,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use App\Models\Post;
 use App\Policies\PostPolicy;
+use Illuminate\Support\Facades\Route;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -29,6 +30,8 @@ class AppServiceProvider extends ServiceProvider
         //
           view()->composer('*', function ($view) {
         $view->with('user', \Illuminate\Support\Facades\Auth::user());
+
+         Route::pattern('id', '[0-9]+');
     });
     }
 }
