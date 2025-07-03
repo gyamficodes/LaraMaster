@@ -25,7 +25,7 @@ Route::get('/posts/create', [PostController::class, 'create'])->name('post.creat
 
 Route::middleware('auth')->group(function () {
   // Post routes
-  Route::post('/posts', [PostController::class, 'store'])->middleware('auth');  // to save post
+  Route::post('/posts', [PostController::class, 'store']); // to save post
   Route::get('/posts/{post}/edit', [PostController::class, 'edit'])->name('post.edit');
   Route::patch('/posts/{post}', [PostController::class, 'update']);
   Route::delete('/posts/{post}', [PostController::class, 'destroy']);
