@@ -18,7 +18,6 @@ Route::singleton('/profile', ProfileController::class)
     ->name('profile', 'index')
     ->middleware('auth'); // Ensure the profile route is protected by authentication
 
-
 Route::get('/posts', [PostController::class, 'index'])->name('post.index');   // to show posts
 Route::get('/posts/create', [PostController::class, 'create'])->name('post.create');  // to show create form
  Route::get('/posts/{post}', [PostController::class, 'show'])->name('post.show');
