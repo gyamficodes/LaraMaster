@@ -24,7 +24,7 @@
                             </svg>
                         </div>
                     </div>
-                    <form method="POST" action="/profile/{{ $user->id }}" ...>
+                   
                         <x-error name="name" />
                 </div>
 
