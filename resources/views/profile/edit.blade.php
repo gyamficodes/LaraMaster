@@ -8,7 +8,6 @@
             <form method="POST" action="{{ route('profile.update') }}" enctype="multipart/form-data" class="space-y-6">
                 @csrf
                 @method('PATCH')
-
                 <!-- Name Field -->
                 <div class="space-y-3">
                     <label class="block text-sm font-medium text-gray-700">Name</label>
@@ -27,7 +26,6 @@
                    
                         <x-error name="name" />
                 </div>
-
                 <!-- Email Field -->
                 <div class="space-y-3">
                     <label class="block text-sm font-medium text-gray-700">Email</label>
@@ -45,7 +43,6 @@
                     </div>
                     <x-error name="email" />
                 </div>
-
                 <!-- Password Field -->
                 <div class="space-y-3">
                     <label class="block text-sm font-medium text-gray-700">New Password (optional)</label>
