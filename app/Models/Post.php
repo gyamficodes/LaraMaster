@@ -18,4 +18,8 @@ protected $fillable = ['title','body', 'user_id', 'image'];
     return $this->belongsTo(User::class);
  }
 
+ public function comments(){
+    return $this->hasMany(Comment::class);
+ }
+
 }
