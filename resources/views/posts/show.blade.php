@@ -54,5 +54,35 @@
                 </a>
             </div>
         @endcan
-    </div>
+
+
+        <div class="mt-4">
+            <h3>Comments ({{ $post->comments->count() }})</h3>
+            <h3 class="text-lg font-semibold mb-2">Comments</h3>
+            @if ($post->comments->count())
+                @foreach ($post->comments as $comment)
+                    <div class="bg-gray-100 p-4 rounded-lg mb-4">
+                        <p class="text-gray-700">{{ $comment->body }}</p>
+                        <p class="text-sm text-gray-500 mt-2">By {{ $comment->user->name }} -
+                            {{ $comment->created_at->diffForHumans() }}</p>
+                    </div>
+                @endforeach
+            @else
+                <p class="text-gray-500">No comments yet.</p>
+            @endif
+
+            <!-- Comment Form -->
+            @auth
+                <form action="{{ route('comments.store', $post) }}" method="POST">
+                    @csrf
+
+                    <textarea name="body" class="form-control" rows="3" placeholder="Write a comment..."
+                        required></textarea>
+                    <button type="submit" class="btn btn-primary mt-2">Post Comment</button>
+                </form>
+            @else
+                <p><a href="{{ route('login') }}">Log in</a> to leave a comment.</p>
+            @endauth
+                   </div>
+        </div>
 </x-layoutcomp>
