@@ -22,7 +22,7 @@ Route::singleton('/profile', ProfileController::class)
 
     // Comment routes
 Route::post('/posts/{post}/comments', [CommentController::class, 'store'])->name('comments.store'); // to show comments for a post
-
+Route::delete('/comments/{comment}', [CommentController::class, 'destroy'])->name('comments.destroy'); // to delete a comment
 
 Route::get('/posts', [PostController::class, 'index'])->name('post.index');   // to show posts
 Route::get('/posts/create', [PostController::class, 'create'])->name('post.create');  // to show create form
