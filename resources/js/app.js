@@ -8,10 +8,11 @@ import './bootstrap';
 
 
   const profileDropdownButton = document.querySelector('#profileButton');
+
+
+  const handdleUserProfileButton = () => {
   const profileDropdown = document.querySelector('#user-profile');
 
-  
-  const handdleUserProfileButton = () => {
      if(profileDropdown.classList.contains('hidden')){
       profileDropdown.classList.remove('hidden');
       profileDropdown.classList.add('flex');
