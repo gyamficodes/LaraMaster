@@ -5,8 +5,11 @@ use Illuminate\Http\Request;
 use App\Models\Comment;
 use App\Models\Post;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+
 class CommentController extends Controller
 {
+    use AuthorizesRequests;
     //
       public function store( Request $request, Post $post)
       {
@@ -30,6 +33,7 @@ class CommentController extends Controller
         public function destroy(Comment $comment)
         {
             // Check if the authenticated user is the owner of the comment
+            $this->authorize('delete', $comment);
             if (Auth::id() !== $comment->user_id) {
                 return redirect()->back()->with('error', 'You are not authorized to delete this comment.');
             }
